@@ -16,7 +16,7 @@
   `
 
   // Helper function to clean data from the form
-  const cleanSerializedData = data => data.reduce((obj, d) => ({ ...obj, [d.name]: d.value}), {})
+  const cleanSerializedData = data => data.reduce((obj, d) => ({ ...obj, [d.name]: d.value }), {})
 
   const getItems = () => {
     $.get(`${BASE_URL}/items`, (data) => {
@@ -58,6 +58,8 @@
     const $checkbox = $(e.currentTarget)
     const itemId = $checkbox.data('id')
 
+    resetError()
+
     $.ajax({
       method: 'PUT',
       url: `${BASE_URL}/items/${itemId}`,
@@ -73,6 +75,8 @@
   $('#items-list').on('click', '.delete-btn', (e) => {
     const $btn = $(e.currentTarget)
     const itemId = $btn.data('id')
+
+    resetError()
 
     $.ajax({
       method: 'DELETE',
