@@ -8,7 +8,8 @@ const { TodoItem } = require('./models/todo')
 const db = require('./database')
 
 const CORS_OPTIONS = {
-  origin: '*',
+  origin: 'https://localhost:8000',
+  // origin: '*',
   optionSuccessStatus: 200
 }
 

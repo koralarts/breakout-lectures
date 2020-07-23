@@ -1,6 +1,9 @@
 (function($) {
   const BASE_URL = 'http://localhost:8888'
 
+  const resetError = () => $('#error-msg').hide()
+  const setError = msg => $('#error-msg').html(msg).fadeIn()
+
   // Helper function to create list items
   const createListItem = data => `
     <li id="${data.id}">
@@ -23,6 +26,8 @@
       }
 
       $('#items-list').html(items.join(''))
+    }).fail(() => {
+      setError('Error occured while grabbing Todo Items')
     })
   }
 
@@ -32,12 +37,17 @@
 
     const $form = $('#add-form')
 
+    resetError()
+
     $.post({
       url: `${BASE_URL}/items`,
       data: JSON.stringify(cleanSerializedData($form.serializeArray())),
       success: (data) => {
         $('#items-list').append(createListItem(data))
         $form[0].reset()
+      },
+      error: () => {
+        setError('Error occured while saving Todo Item')
       },
       contentType: 'application/json'
     })
@@ -52,7 +62,10 @@
       method: 'PUT',
       url: `${BASE_URL}/items/${itemId}`,
       data: JSON.stringify({ isCompleted: $checkbox.is(':checked') }),
-      contentType: 'application/json'
+      contentType: 'application/json',
+      error: () => {
+        setError('Error occured while saving Todo Item')
+      },
     })
   })
 
@@ -64,7 +77,10 @@
     $.ajax({
       method: 'DELETE',
       url: `${BASE_URL}/items/${itemId}`,
-      success: getItems
+      success: getItems,
+      error: () => {
+        setError('Error occured while deleting Todo Item')
+      },
     })
   })
 
