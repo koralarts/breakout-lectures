@@ -76,3 +76,18 @@ header h1 {
   background-color: var(--primary-main);
   color: var(--primary-contrast-text);
 }
+
+@media (min-width: 768px) {
+  main {
+    margin: auto;
+    width: 75vw;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  main {
+    width: 50vw;
+    max-width: 750px;
+  }
+}
