@@ -6,8 +6,8 @@
     <li id="${data.id}">
       <span>${data.name}</span>
       <div>
-        <input type="checkbox" ${data.isCompleted ? "checked" : ""} data-id="${data.id}" />
-        <button class="delete-btn" data-id="${data.id}"><i class="fa fa-trash"></i></button>
+        <input type="checkbox" ${data.isCompleted ? "checked" : ""} data-id="${data.id}" aria-label="${data.name} ${data.isCompleted ? "completed" : "incomplete"}" />
+        <button class="delete-btn" data-id="${data.id}" aria-label="Delete ${data.name}"><i class="fa fa-trash"></i></button>
       </div>
     </li>
   `
