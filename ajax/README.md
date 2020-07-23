@@ -3,6 +3,8 @@
 ## Important Links
 
  - [Postman](https://www.postman.com/)
+ - [HTTP Request Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
+ - [HTTP Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
  - [jQuery Ajax](https://api.jquery.com/Jquery.ajax/)
  - [jQuery Get](https://api.jquery.com/Jquery.get/)
  - [jQuery Post](https://api.jquery.com/Jquery.post/)
